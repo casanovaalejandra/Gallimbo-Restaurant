@@ -54,28 +54,13 @@ public class ArrayIndexList<E> {
 		element[index]=e;
 		return temp;
 	}
-	//metodo para duplicar cada elemento en la lista, necesito ir uno por uno en la lista sustituyendo valores.
-//	public void  giveDouble()  throws Exception{
-//		if(element.getClass().getName().equals("String")) { throw new Exception("Inavlid list");}
-//
-//		for (int i=0;i<size;i++) {
-//			element[i]= Math.pow((double) element[i], 2);
-//		}
-//
-//	}
+
 	public int size() {
 		return size;
 	}    
 	public int capacity() {
 		return element.length;
 	}
-
-	// private methods  -- YOU CAN NOT MODIFY ANY OF THE FOLLOWING
-	// ... ANALYZE AND USE WHEN NEEDED
-
-	// you should be able to decide when and how to use
-	// following method.... BUT NEED TO USE THEM WHENEVER
-	// NEEDED ---- THIS WILL BE TAKEN INTO CONSIDERATION WHEN GRADING
 
 	private void changeCapacity(int change) { 
 		int newCapacity = element.length + change; 
@@ -87,17 +72,12 @@ public class ArrayIndexList<E> {
 		element = newElement; 
 	}
 
-	// useful when adding a new element with the add
-	// with two parameters....
 	private void moveDataOnePositionTR(int low, int sup) { 
-		// pre: 0 <= low <= sup < (element.length - 1)
 		for (int pos = sup; pos >= low; pos--)
 			element[pos+1] = element[pos]; 
 	}
 
-	// useful when removing an element from the list...
 	private void moveDataOnePositionTL(int low, int sup) { 
-		// pre: 0 < low <= sup <= (element.length - 1)
 		for (int pos = low; pos <= sup; pos++)
 			element[pos-1] = element[pos]; 
 

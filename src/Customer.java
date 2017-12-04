@@ -10,7 +10,7 @@ public class Customer {
 	private int timeToPrepare;
 	private double costOfOrder;
 	private int levelOfPatience;
-	private Customer[] customers;
+	private ArrayIndexList<Customer> customers;
 	private int INITCAP = 100;
 
 	public Customer(int arr, int ID, int TTprep, double cost,int levelP ) {
@@ -19,7 +19,7 @@ public class Customer {
 		timeToPrepare=TTprep;
 		costOfOrder=cost;
 		levelOfPatience=levelP;
-		customers = new Customer[INITCAP];
+		customers = new ArrayIndexList<Customer>();
 	}
 
 	public int getLevelOfPatience() {
@@ -53,25 +53,4 @@ public class Customer {
 	public void setArrivalTime(int arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
-
-	public void changeCapacity(Customer[] custmers) {
-		int initialCapacity = custmers.length;
-	
-		Customer[] newArrayOfCustomers = new Customer[initialCapacity*2];
-	
-		if(customers[initialCapacity-1]!=null) {
-			for(int i =0;i<=initialCapacity;i++) {
-				newArrayOfCustomers[i]=customers[i];
-			}
-			customers= newArrayOfCustomers;
-		}
-		else {
-			Customer[] arrayOfCustomers2 = new Customer[initialCapacity/2];
-			for(int i=0;i<=initialCapacity;i++) {
-				arrayOfCustomers2[i] = customers[i];
-			}
-			customers=arrayOfCustomers2;
-		}
-	}
-
 }
