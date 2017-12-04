@@ -5,6 +5,11 @@ public class DNode<E> implements Node<E> {
 	private Node<E> next;
 	private Node<E> prev;
 	
+	public DNode(E elem) {
+		element = elem;
+		prev = next = null;
+	}
+	
 	public DNode(E elem,Node<E> p, Node<E> n){
 		element = elem;
 		prev = p;
@@ -27,6 +32,7 @@ public class DNode<E> implements Node<E> {
 		return next;
 	}
 	public E getElement() {
+		
 		return element;
 	}
 }
