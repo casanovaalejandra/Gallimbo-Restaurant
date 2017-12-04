@@ -13,35 +13,14 @@ public class Customer {
 	private Customer[] customers;
 	private int INITCAP = 100;
 
-	public Customer() {
-		arrivalTime=0;
-		ID=0;
-		timeToPrepare=0;
-		costOfOrder=0;
-		levelOfPatience=0;
+	public Customer(int arr, int ID, int TTprep, double cost,int levelP ) {
+		arrivalTime=arr;
+		this.ID=ID;
+		timeToPrepare=TTprep;
+		costOfOrder=cost;
+		levelOfPatience=levelP;
 		customers = new Customer[INITCAP];
-
 	}
-
-	//public void readFile(File file) {
-//		try {
-//			in = new Scanner(file);
-//
-//			while(in.hasNext()) {
-//				doneJobs++;
-//				String data = in.nextLine();
-//				String[] jobs = data.split(",");
-//				int arrivalTime = Integer.parseInt(jobs[0]);
-//				int serviceTime = Integer.parseInt(jobs[1]);
-//				Job theCurrentJob = new Job(arrivalTime,serviceTime,doneJobs);
-//				inputQueue.enqueue(theCurrentJob);
-//			}	
-//			in.close();
-//
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		}
-//	}
 
 	public int getLevelOfPatience() {
 		return levelOfPatience;
@@ -77,6 +56,7 @@ public class Customer {
 
 	public void changeCapacity(Customer[] custmers) {
 		int initialCapacity = custmers.length;
+	
 		Customer[] newArrayOfCustomers = new Customer[initialCapacity*2];
 	
 		if(customers[initialCapacity-1]!=null) {
