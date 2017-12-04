@@ -1,3 +1,5 @@
+package tools;
+import interfaces.Node;
 
 public class DNode<E> implements Node<E> {
 

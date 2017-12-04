@@ -1,3 +1,6 @@
+package tools;
+import interfaces.Queue;
+
 public class SLLQueue<E> implements Queue<E> {
 
 	private DNode<E> first;
