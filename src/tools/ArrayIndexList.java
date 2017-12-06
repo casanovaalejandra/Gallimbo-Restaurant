@@ -40,7 +40,7 @@ public class ArrayIndexList<E> {
 	}
 
 	public E remove(int index) throws IndexOutOfBoundsException {
-		if(index>size-1|| index<0) { throw new IndexOutOfBoundsException("remove: Invalid index: "+ index);}
+		if(index>size-1 || index<0) { throw new IndexOutOfBoundsException("remove: Invalid index: "+ index);}
 		E temp = element[index];
 		moveDataOnePositionTL(index+1,size-1);
 		size--;
