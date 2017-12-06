@@ -13,16 +13,13 @@ public class Customer {
 	private int timeToPrepare;
 	private double costOfOrder;
 	private int levelOfPatience;
-	private ArrayIndexList<Customer> customers;
-	private int INITCAP = 100;
-
+	
 	public Customer(int arr, int ID, int TTprep, double cost,int levelP ) {
 		arrivalTime=arr;
 		this.ID=ID;
 		timeToPrepare=TTprep;
 		costOfOrder=cost;
 		levelOfPatience=levelP;
-		customers = new ArrayIndexList<Customer>();
 	}
 
 	public int getLevelOfPatience() {
@@ -56,4 +53,5 @@ public class Customer {
 	public void setArrivalTime(int arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
+
 }
