@@ -15,7 +15,8 @@ public class Customer {
 	private int levelOfPatience;
 	private ArrayIndexList<Customer> customers;
 	private int INITCAP = 100;
-
+	private boolean status;
+	
 	public Customer(int arr, int ID, int TTprep, double cost,int levelP ) {
 		arrivalTime=arr;
 		this.ID=ID;
@@ -23,6 +24,7 @@ public class Customer {
 		costOfOrder=cost;
 		levelOfPatience=levelP;
 		customers = new ArrayIndexList<Customer>();
+		setStatus(false);
 	}
 
 	public int getLevelOfPatience() {
@@ -56,4 +58,13 @@ public class Customer {
 	public void setArrivalTime(int arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
+
+	public boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	
 }
