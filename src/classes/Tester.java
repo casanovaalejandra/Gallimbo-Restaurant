@@ -1,3 +1,4 @@
+package classes;
 
 public class Tester<E> {
 	private E[] tester1;
