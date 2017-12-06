@@ -83,5 +83,14 @@ public class ArrayIndexList<E> {
 			element[pos-1] = element[pos]; 
 
 	}
+	public boolean hasNext() {
+		int counter=0;
+		while(!element[counter].equals(null)) {
+			counter++;
+			return true;
+		}
+		return false;
+		
+	}
 
 }
