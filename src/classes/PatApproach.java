@@ -1,6 +1,5 @@
 package classes;
 import tools.ArrayIndexList;
-import tools.ArrayIndexList;
 import tools.SLLQueue;
 
 
@@ -8,7 +7,7 @@ public class PatApproach<E> {
 
 	private int time;
 	private double profit = 0;
-	private int numberOfCustomerSatisfied = 0;
+	private int numberOfDisappointedCustomers = 0;
 	ArrayIndexList<Customer> inputCustomers;
 	SLLQueue<Customer> processQueue;
 
@@ -24,11 +23,15 @@ public class PatApproach<E> {
 		while(!inputCustomers.isEmpty() || !processQueue.isEmpty()) {
 			if(!processQueue.isEmpty()) {
 				processQueue.first().setTimeToPrepare(processQueue.first().getTimeToPrepare()-1);
+				System.out.println("Remaining time to prepare order: " + processQueue.first().getTimeToPrepare());
+				
 				if(processQueue.first().getTimeToPrepare()==0) {
 					profit+=processQueue.dequeue().getCostOfOrder();
-					numberOfCustomerSatisfied++;
+					System.out.println("Order finished!\n");
+					
 					if(!processQueue.isEmpty() && time - processQueue.first().getArrivalTime()> processQueue.first().getLevelOfPatience()) {
 						processQueue.dequeue();	
+						numberOfDisappointedCustomers++;
 					}
 				}
 				
@@ -48,7 +51,16 @@ public class PatApproach<E> {
 		this.profit = profit;
 	}
 
-	public int getNumberOfCustomerSatisfied() {
-		return numberOfCustomerSatisfied;
+	public int getNumberOfDisappointedCustomers() {
+		return numberOfDisappointedCustomers;
 	}
+
+	public void setNumberOfDisappointedCustomers(int numberOfDisappointedCustomers) {
+		this.numberOfDisappointedCustomers = numberOfDisappointedCustomers;
+	}
+
+	
+
+
 }
+
