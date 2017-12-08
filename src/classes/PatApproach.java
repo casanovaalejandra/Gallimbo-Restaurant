@@ -3,7 +3,7 @@ import tools.ArrayIndexList;
 import tools.SLLQueue;
 
 
-public class PatApproach<E> {
+public class PatApproach {
 
 	private int time;
 	private int orderNumber = 0;
@@ -19,7 +19,7 @@ public class PatApproach<E> {
 
 	}
 
-	public void processCustomer() {
+	public void processCustomers() {
 		time=0;
 		while(!inputCustomers.isEmpty() || !processQueue.isEmpty()) {
 			System.out.println("Time: " + time);
