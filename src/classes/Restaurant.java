@@ -14,7 +14,7 @@ public class Restaurant {
 	
 	public static void main(String[] args) {
 		Restaurant gallimbo = new Restaurant();
-		File file = new File("inputExample.csv");
+		File file = new File("input0.csv");
 		gallimbo.readFile(file);
 		
 
@@ -24,14 +24,17 @@ public class Restaurant {
 		MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
 		mat.proccesOrders();
 		
-		MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
-		max.processCustomers();
+//		MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
+//		max.processCustomers();
 		
 //		System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
 //		System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
 		
-		System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
-		System.out.printf("Max approach profit: $%.2f", max.getProfit());
+//		System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
+//		System.out.printf("Max approach profit: $%.2f", max.getProfit());
+		
+		System.out.println("Mat approach dissapointed customers: " + mat.getNumberOfDissapointedCustomers());
+		System.out.println("Mat approach profit: " + mat.getProfit());
 	}
 	
 
