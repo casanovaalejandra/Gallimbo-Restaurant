@@ -18,23 +18,31 @@ public class Restaurant {
 		gallimbo.readFile(file);
 		
 
-//		PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
-//		pat.processCustomers();
+		PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
+		pat.processCustomers();
 		
-		MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
-		mat.proccesOrders();
+		//MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
+		//mat.proccesOrders();
 		
+<<<<<<< HEAD
 //		MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
 //		max.processCustomers();
+=======
+		MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
+		//max.processCustomers();
+>>>>>>> branch 'master' of https://github.com/casanovaalejandra/Gallimbo-Restaurant.git
 		
-//		System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
-//		System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
+		System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
+		System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
 		
 //		System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
 //		System.out.printf("Max approach profit: $%.2f", max.getProfit());
+<<<<<<< HEAD
 		
 		System.out.println("Mat approach dissapointed customers: " + mat.getNumberOfDissapointedCustomers());
 		System.out.println("Mat approach profit: " + mat.getProfit());
+=======
+>>>>>>> branch 'master' of https://github.com/casanovaalejandra/Gallimbo-Restaurant.git
 	}
 	
 
