@@ -3,8 +3,8 @@ import interfaces.Queue;
 
 public class SLLQueue<E> implements Queue<E> {
 
-	private DNode<E> first;
-	private DNode<E> last;
+	private SNode<E> first;
+	private SNode<E> last;
 
 	private int size;
 
@@ -31,7 +31,7 @@ public class SLLQueue<E> implements Queue<E> {
 			return null;
 		}
 		E returnElement = first.getElement();
-		DNode<E> newFirst = (DNode<E>) first.getNext();
+		SNode<E> newFirst = (SNode<E>) first.getNext();
 		first.setNext(null);
 		first = newFirst;
 		size--;
@@ -39,7 +39,7 @@ public class SLLQueue<E> implements Queue<E> {
 	}
 
 	public void enqueue(E e) {
-		DNode<E> newNode = new DNode<E>(e);
+		SNode<E> newNode = new SNode<E>(e);
 		if(isEmpty()) {
 			first=last = newNode;
 		}

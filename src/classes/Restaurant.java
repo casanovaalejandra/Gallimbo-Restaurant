@@ -14,14 +14,20 @@ public class Restaurant {
 	
 	public static void main(String[] args) {
 		Restaurant gallimbo = new Restaurant();
-		File file = new File("input3.csv");
+		File file = new File("inputExample.csv");
 		gallimbo.readFile(file);
 		
-		PatApproach<Customer> pat = new PatApproach<Customer>(gallimbo.getListOfCustomers());
-		pat.processCustomer();
+//		PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
+//		pat.processCustomers();
 		
-		System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
-		System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
+		MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
+		max.processCustomers();
+		
+//		System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
+//		System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
+		
+		System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
+		System.out.printf("Max approach profit: $%.2f", max.getProfit());
 	}
 
 	public void readFile(File file) {
