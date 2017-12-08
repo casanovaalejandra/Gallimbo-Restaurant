@@ -9,30 +9,30 @@ public class MaxApproach {
 	private double profit = 0;
 	private int numberOfDisappointedCustomers = 0;
 	ArrayIndexList<Customer> inputCustomers;
-	SLLQueue<Customer> processQueue;
+	Customer processCustomer;
 	ArrayIndexList<Customer> waitingLine = new ArrayIndexList<Customer>();
 
 	public MaxApproach(ArrayIndexList<Customer> inputCustomers) {
 		this.inputCustomers  = inputCustomers;
-		processQueue = new SLLQueue<Customer>();
 	}
 
 	public void processCustomers() {
 		time=0;
-		while(!inputCustomers.isEmpty() || !processQueue.isEmpty()) {
+		while(!inputCustomers.isEmpty() || processCustomer != null) {
 			System.out.println("Time: " + time);
-			if(!processQueue.isEmpty()) {
-				processQueue.first().setTimeToPrepare(processQueue.first().getTimeToPrepare()-1);
-				System.out.println("Remaining time to prepare order: " + processQueue.first().getTimeToPrepare());
+			if(processCustomer != null) {
+				processCustomer.setTimeToPrepare(processCustomer.getTimeToPrepare()-1);
+				System.out.println("Remaining time to prepare order: " + processCustomer.getTimeToPrepare());
 
-				if(processQueue.first().getTimeToPrepare()==0) {
+				if(processCustomer.getTimeToPrepare()==0) {
 					orderNumber++;
-					profit+=processQueue.dequeue().getCostOfOrder();
+					profit+=processCustomer.getCostOfOrder();
 					System.out.println("Order " + orderNumber+  " finished!\n");
+					processCustomer = null;
 
-					while(!processQueue.isEmpty() && time - processQueue.first().getArrivalTime()> processQueue.first().getLevelOfPatience()) {
+					while(!waitingLine.isEmpty() && time - waitingLine.get(0).getArrivalTime()> waitingLine.get(0).getLevelOfPatience()) {
 						orderNumber++;
-						processQueue.dequeue();	
+						waitingLine.remove(0);	
 						numberOfDisappointedCustomers++;
 						System.out.println("Order " + orderNumber + " dissapointed\n");
 					}
@@ -46,10 +46,11 @@ public class MaxApproach {
 			
 			if(!waitingLine.isEmpty()){
 				waitingLine = sortByProfit(waitingLine);
-				while(!waitingLine.isEmpty()){
-					processQueue.enqueue(waitingLine.remove(0));
-				}
 			}
+			if(processCustomer == null && !waitingLine.isEmpty()){
+				processCustomer = waitingLine.remove(0);
+			}
+			
 			time++;
 		}
 	}

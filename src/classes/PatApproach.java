@@ -42,6 +42,7 @@ public class PatApproach {
 				
 			}
 			while(!inputCustomers.isEmpty() && inputCustomers.get(0).getArrivalTime()==time) {
+
 					processQueue.enqueue(inputCustomers.remove(0));
 			}
 			time++;

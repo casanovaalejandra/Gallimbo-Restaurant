@@ -13,7 +13,8 @@ public class Customer {
 	private int timeToPrepare;
 	private double costOfOrder;
 	private int levelOfPatience;
-	
+	private int patienceOverTime = levelOfPatience + arrivalTime;
+
 	public Customer(int arr, int ID, int TTprep, double cost,int levelP ) {
 		arrivalTime=arr;
 		this.ID=ID;
@@ -54,4 +55,11 @@ public class Customer {
 		this.arrivalTime = arrivalTime;
 	}
 
+	public int getPatienceOverTime() {
+		return patienceOverTime;
+	}
+
+	public void setPatienceOverTime(int patienceOverTime) {
+		this.patienceOverTime = patienceOverTime;
+	}
 }

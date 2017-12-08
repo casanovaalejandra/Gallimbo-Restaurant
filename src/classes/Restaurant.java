@@ -14,24 +14,24 @@ public class Restaurant {
 	
 	public static void main(String[] args) {
 		Restaurant gallimbo = new Restaurant();
-		File file = new File("inputExample.csv");
+		File file = new File("input0.csv");
 		gallimbo.readFile(file);
 		
 
-//		PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
-//		pat.processCustomers();
+		PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
+		pat.processCustomers();
 		
-		MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
-		mat.proccesOrders();
+		//MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
+		//mat.proccesOrders();
 		
 		MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
-		max.processCustomers();
+		//max.processCustomers();
 		
-//		System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
-//		System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
+		System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
+		System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
 		
-		System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
-		System.out.printf("Max approach profit: $%.2f", max.getProfit());
+//		System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
+//		System.out.printf("Max approach profit: $%.2f", max.getProfit());
 	}
 	
 
