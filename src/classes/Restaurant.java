@@ -7,44 +7,43 @@ import tools.ArrayIndexList;
 
 public class Restaurant {
 	private ArrayIndexList<Customer> listOfCustomers = new ArrayIndexList<Customer>();
-	
+
 	public Restaurant() {
-		
+
 	}
-	
+
 	public static void main(String[] args) {
 		Restaurant gallimbo = new Restaurant();
-		File file = new File("input0.csv");
+		File file = new File("inputExample.csv");
 		gallimbo.readFile(file);
-		
 
-		PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
-		pat.processCustomers();
+
+	//	PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
+		//pat.processCustomers();
+
+	//	MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
+	//	mat.proccesOrders();
+
+
+	//	MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
+	//	max.processCustomers();
+
+		PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
+		pac.processOrder();
+		System.out.println("Pac approach disappointed customers: " + pac.getNumberOfDisappointedCustomers());
+		System.out.printf("Pac approach profit: $%.2f", pac.getProfit());
 		
-		//MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
-		//mat.proccesOrders();
-		
-<<<<<<< HEAD
-//		MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
-//		max.processCustomers();
-=======
-		MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
-		//max.processCustomers();
->>>>>>> branch 'master' of https://github.com/casanovaalejandra/Gallimbo-Restaurant.git
-		
-		System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
-		System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
-		
-//		System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
-//		System.out.printf("Max approach profit: $%.2f", max.getProfit());
-<<<<<<< HEAD
-		
-		System.out.println("Mat approach dissapointed customers: " + mat.getNumberOfDissapointedCustomers());
-		System.out.println("Mat approach profit: " + mat.getProfit());
-=======
->>>>>>> branch 'master' of https://github.com/casanovaalejandra/Gallimbo-Restaurant.git
-	}
+	//	System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
+	//	System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
+
+	//	System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
+	//	System.out.printf("Max approach profit: $%.2f", max.getProfit());
+
+//		System.out.println("Mat approach dissapointed customers: " + mat.getNumberOfDissapointedCustomers());
+//		System.out.println("Mat approach profit: " + mat.getProfit());
 	
+	}
+
 
 	public void readFile(File file) {
 		try {
@@ -66,7 +65,7 @@ public class Restaurant {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public ArrayIndexList<Customer> getListOfCustomers(){
 		return listOfCustomers;
 	}
