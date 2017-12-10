@@ -1,3 +1,9 @@
+/*
+ * Alejandra Casanova
+ * JoseA Melendez
+ */
+
+
 package exceptions;
 
 public class EmptyStackException extends RuntimeException {

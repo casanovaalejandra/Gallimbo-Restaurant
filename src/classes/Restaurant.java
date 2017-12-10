@@ -1,3 +1,8 @@
+/*
+ * Alejandra Casanova
+ * JoseA Melendez
+ */
+
 /**********************************************************************************************************
  	Authors: Jose A. Melendez Moreles and Alejandra Casanova Sepulveda
   	Course: ICOM4035

@@ -1,3 +1,9 @@
+/*
+ * Alejandra Casanova
+ * JoseA Melendez
+ */
+
+
 package classes;
 
 import tools.ArrayIndexList;
@@ -40,7 +46,7 @@ public class MatApproach<E> {
 				if(currentCustomer.getTimeToPrepare()==0) {
 					profit+=currentCustomer.getCostOfOrder();
 					orderedNumber++;
-					System.out.println("Order " + orderedNumber +  " finished!\n");
+				System.out.println("Order " + orderedNumber +  " finished!\n");
 					while(!processStack.isEmpty() && processStack.top().getLevelOfPatience() < time - processStack.top().getArrivalTime()) {
 						processStack.pop();
 						numberOfDisappointedCustomers++;

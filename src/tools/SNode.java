@@ -1,3 +1,8 @@
+/*
+ * Alejandra Casanova
+ * JoseA Melendez
+ */
+
 package tools;
 
 public class SNode<E>  {

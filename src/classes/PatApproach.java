@@ -1,3 +1,8 @@
+/*
+ * Alejandra Casanova
+ * JoseA Melendez
+ */
+
 package classes;
 import tools.ArrayIndexList;
 import tools.SLLQueue;

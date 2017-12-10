@@ -1,3 +1,9 @@
+/*
+ * Alejandra Casanova
+ * JoseA Melendez
+ */
+
+
 package interfaces;
 
 public interface Node<E> {
