@@ -1,13 +1,13 @@
-Maximum profit possible: $149797.35
-Maximum number of customers served possible: 20000
+Maximum profit possible: $74741.62
+Maximum number of customers served possible: 10000
 Pat's approach profit: $67367.17
 Pat's approach number of disappointed customers: 994
-Mat's approach profit: $65802.49
+Mat's approach profit: $65593.91
 
-Mat's approach number of disappointed customers: 1178
-Max's approach profit: $69541.25
+Mat's approach number of disappointed customers: 1209
+Max's approach profit: $70051.93
 
-Max's approach number of disappointed customers: 1088
+Max's approach number of disappointed customers: 1110
 Pac's approach profit: $69348.07
 
 Pac's approach number of disappointed customers: 730

@@ -62,25 +62,7 @@ public class MaxApproach {
 		}
 	}
 	
-	//a bubble sort for organizing waiting customers in order by profit. 
-//	public ArrayIndexList<Customer> sortByProfit(ArrayIndexList<Customer> arr) {
-//		ArrayIndexList<Customer> organizedCustomers = arr;
-//		if(arr.size() == 1){
-//			return arr;
-//		}
-//		for(int i = 0; i<arr.size();i++) {
-//			Customer temp;
-//			for(int j = i+1; j<arr.size(); j++) {
-//				if(arr.get(j).getCostOfOrder() > arr.get(i).getCostOfOrder()){
-//					temp = arr.get(j);
-//					arr.set(j, arr.get(i));
-//					arr.set(i,temp);
-//			}
-//			
-//			}
-//		}
-//		return organizedCustomers;
-//	}
+
 	/**
 	 * 
 	 * @param arr list of customers to be sorted by the highest profit
@@ -99,7 +81,7 @@ public class MaxApproach {
 	public void mergeSortByProfit(ArrayIndexList<Customer> arr, Customer[] temp, int left, int right){
 		if (left<right) {
 			int center = (left + right)/2;
-			//mergeSortByProfit(arr,temp,left,center);
+			mergeSortByProfit(arr,temp,left,center);
 			mergeSortByProfit(arr, temp, center+1, right);
 			merge(arr, temp, left, center+1,right);
 		}

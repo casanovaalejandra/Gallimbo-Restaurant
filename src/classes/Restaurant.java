@@ -72,6 +72,7 @@ public class Restaurant {
 			PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
 			pac.processOrder();
 			System.out.println("Pac approach eneded\n");
+			
 			//Real hasta la muerte
 			try {
 				String fileName = theFiles.get(i).getName();
@@ -98,6 +99,8 @@ public class Restaurant {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} 
+			maxCustomersServed = 0;
+			maxProfit = 0;
 		}
 	}
 
@@ -106,7 +109,6 @@ public class Restaurant {
 			Scanner in = new Scanner(file);
 
 			while(in.hasNext()) {
-
 				maxCustomersServed++;
 				String data = in.nextLine();
 				String[] separatedData = data.split(",");
