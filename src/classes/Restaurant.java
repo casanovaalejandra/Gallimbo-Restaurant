@@ -58,7 +58,7 @@ public class Restaurant {
 		//	MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
 		//	mat.proccesOrders();
 
-		for(int i =0; i<theFiles.size();i++) {
+		for(int i =0; i<theFiles.size()-1;i++) {
 
 			gallimbo.readFile(theFiles.get(i));
 			PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
@@ -76,11 +76,11 @@ public class Restaurant {
 			PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
 			pac.processOrder();
 
-
+			//Real hasta la muerte
 			try {
 				String fileName = theFiles.get(i).getName();
-				String[2] separatedData = fileName.split(".");
-				String outputName = separatedData[0] + ".out";
+				String baseName = fileName.substring(0, fileName.length()-5);
+				String outputName = baseName + ".out";
 				PrintWriter outputStream = new PrintWriter(outputName);
 				outputStream.printf("Maximum profit possible: $%.2f", getMaxProfit());
 				outputStream.println("");
@@ -100,7 +100,6 @@ public class Restaurant {
 				outputStream.close();
 				System.out.println("Done");
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 		}

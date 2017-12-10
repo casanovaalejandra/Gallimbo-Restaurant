@@ -38,7 +38,6 @@ public class PacApproach {
 				}
 
 			}
-
 			int count = 0;
 			while(!inputCustomers.isEmpty() && inputCustomers.get(0).getArrivalTime()==time) {
 				waitingLine.add(inputCustomers.remove(0));
