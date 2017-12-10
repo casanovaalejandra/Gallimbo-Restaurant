@@ -1,13 +1,15 @@
 package tools;
 
-public class ArrayIndexList<E> {
+import classes.Customer;
+
+public class ArrayIndexList<E>{
 	private static final int INITCAP = 1; 
 	private static final int CAPTOAR = 1; 
 	private static final int MAXEMPTYPOS = 2; 
 	private E[] element; 
 	private int size; 
 
-	public ArrayIndexList() { 
+	public ArrayIndexList()  { 
 		element = (E[]) new Object[INITCAP]; 
 		size = 0; 
 	} 
@@ -63,6 +65,7 @@ public class ArrayIndexList<E> {
 		return element.length;
 	}
 
+
 	private void changeCapacity(int change) { 
 		int newCapacity = element.length + change; 
 		E[] newElement = (E[]) new Object[newCapacity]; 
@@ -90,7 +93,6 @@ public class ArrayIndexList<E> {
 			return true;
 		}
 		return false;
-		
-	}
 
+	}
 }
