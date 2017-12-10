@@ -53,25 +53,23 @@ public class Restaurant {
 		}
 
 		for(int i =0; i<theFiles.size();i++) {
+			System.out.println(theFiles.size());
 			gallimbo.readFile(theFiles.get(i));
 			PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
 			pat.processCustomers();	
-			System.out.println("Pat approach eneded\n");
-			
+
 			gallimbo.readFile(theFiles.get(i));
 			MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
 			mat.proccesOrders();
-			System.out.println("Mat approach eneded\n");
 
 			gallimbo.readFile(theFiles.get(i));
 			MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
 			max.processCustomers();	
-			System.out.println("Max approach eneded\n");
 
 			gallimbo.readFile(theFiles.get(i));
 			PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
 			pac.processOrder();
-			System.out.println("Pac approach eneded\n");
+
 			//Real hasta la muerte
 			try {
 				String fileName = theFiles.get(i).getName();
