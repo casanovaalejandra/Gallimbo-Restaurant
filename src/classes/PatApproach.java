@@ -19,6 +19,9 @@ public class PatApproach {
 
 	}
 
+	/**
+	 * process the list of customers according to Pat approach's specifications. 
+	 */
 	public void processCustomers() {
 		time=0;
 		while(!inputCustomers.isEmpty() || !processQueue.isEmpty()) {
@@ -49,24 +52,28 @@ public class PatApproach {
 		}
 	}
 
+	/**
+	 * @return orderNumber number of current order
+	 */
+	public int getOrderNumber() {
+		return orderNumber;
+	}
+
+	/**
+	 * 
+	 * @return profit the profit gained after processing the list of customers
+	 */
 	public double getProfit() {
 		return profit;
 	}
 
-	public void setProfit(double profit) {
-		this.profit = profit;
-	}
-
+	
+	/**
+	 * 
+	 * @return amount of customers not attended 
+	 */
 	public int getNumberOfDisappointedCustomers() {
 		return numberOfDisappointedCustomers;
 	}
-
-	public void setNumberOfDisappointedCustomers(int numberOfDisappointedCustomers) {
-		this.numberOfDisappointedCustomers = numberOfDisappointedCustomers;
-	}
-
-	
-
-
 }
 
