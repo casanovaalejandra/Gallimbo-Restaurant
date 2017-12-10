@@ -13,13 +13,21 @@ public class MatApproach<E> {
 
 	private ArrayIndexList<Customer> inputCustomers;
 	private SLLStack<Customer> processStack;
-
+/**
+ * Receives an ArrayindexList with the Customer objects on the file to be tested.
+ * 
+ * @param theList list of customers to be processed
+ * 
+ */
 	public MatApproach(ArrayIndexList<Customer> theList) {
 
 		inputCustomers = theList;
 		processStack = new SLLStack<Customer>();
 	}
 
+/**
+ * Process the received list of customers based on the Mat approach ( last in first out)
+ */
 	public void proccesOrders() {
 		time = 0;
 		while(!inputCustomers.isEmpty() || !processStack.isEmpty() || currentCustomer != null) {
@@ -57,16 +65,31 @@ public class MatApproach<E> {
 			time++;
 		}	
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public double getProfit() {
 		return profit;
 	}
-
+/**
+ * 
+ * @param profit
+ */
 	public void setProfit(double profit) {
 		this.profit = profit;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public int getNumberOfDissapointedCustomers() {
 		return numberOfDisappointedCustomers;
 	}
+	/**
+	 * 
+	 * @param numberOfDissapointedCustomers
+	 */
 	public void setNumberOfDissapointedCustomers(int numberOfDissapointedCustomers) {
 		this.numberOfDisappointedCustomers = numberOfDissapointedCustomers;
 	}

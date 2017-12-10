@@ -1,5 +1,5 @@
 package tools;
-
+@SuppressWarnings("rawtypes")
 public class ArrayIndexList<E> {
 	private static final int INITCAP = 1; 
 	private static final int CAPTOAR = 1; 

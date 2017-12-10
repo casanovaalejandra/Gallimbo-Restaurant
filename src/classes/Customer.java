@@ -15,6 +15,14 @@ public class Customer {
 	private int levelOfPatience;
 	private int patienceOverTime = levelOfPatience + arrivalTime;
 
+	/**
+	 * Creates an Customer object that will have the following properties for each customer
+	 * @param arr arrival time of the customer
+	 * @param ID unique identification number of the customer
+	 * @param TTprep time required to prepare order
+	 * @param cost cost of the order
+	 * @param levelP number of unit times the customer will wait until it is attended
+	 */
 	public Customer(int arr, int ID, int TTprep, double cost,int levelP ) {
 		arrivalTime=arr;
 		this.ID=ID;
@@ -22,10 +30,17 @@ public class Customer {
 		costOfOrder=cost;
 		levelOfPatience=levelP;
 	}
-
+/**
+ * 
+ * @return the level of patience of the determined customer
+ */
 	public int getLevelOfPatience() {
 		return levelOfPatience;
 	}
+	/**
+	 * 
+	 * @param levelOfPatience
+	 */
 	public void setLevelOfPatience(int levelOfPatience) {
 		this.levelOfPatience = levelOfPatience;
 	}

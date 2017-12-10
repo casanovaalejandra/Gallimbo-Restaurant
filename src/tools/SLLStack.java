@@ -39,22 +39,6 @@ public class SLLStack<E> implements Stack<E>
 
 	public boolean isEmpty() {
 		return size == 0;
-	}
-	
-
-
-	// just for testing and grading....
-    public void showReverse() { 
-	    if (size == 0)
-		   System.out.println("Stack is empty."); 
-		else
-		   recSR(top);
-    } 
-    private void recSR(SNode<E> f) { 
-		if (f != null) { 
-		   recSR(f.getNext()); 
-		   System.out.print(f.getElement()); 
-	     } 
-    } 
+	} 
  
 }

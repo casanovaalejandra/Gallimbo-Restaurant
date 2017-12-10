@@ -1,8 +1,14 @@
 package classes;
+import java.awt.List;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
-
 import tools.ArrayIndexList;
 
 public class Restaurant {
@@ -14,34 +20,57 @@ public class Restaurant {
 
 	public static void main(String[] args) {
 		Restaurant gallimbo = new Restaurant();
-		File file = new File("inputExample.csv");
-		gallimbo.readFile(file);
+		//File file = new File("inputKiller.csv");
+		//gallimbo.readFile(file);
+
+		File fileText = new File(System.getProperty("user.dir")+ "/input.txt");
+
+		ArrayIndexList<File> theFiles = new ArrayIndexList<File>();
+
+		try {
+			Scanner in = new Scanner(fileText);
+			while(in.hasNextLine()) {
+
+				String filename = in.nextLine();
+				File newFile = new File(filename);
+				theFiles.add(newFile);
+
+			}
+			for(int i =0;i<theFiles.size();i++) {
+				System.out.println(theFiles.get(i).toString());
+			}
+
+		}catch (FileNotFoundException e) {
+			e.printStackTrace();{
+
+			}
+
+		}
+
+		//	PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
+		//	pat.processCustomers();
+
+		//	MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
+		//	mat.proccesOrders();
 
 
-	//	PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
-		//pat.processCustomers();
+		//	MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
+		//	max.processCustomers();
 
-	//	MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
-	//	mat.proccesOrders();
+		//		PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
+		//		pac.processOrder();
+		//		System.out.println("Pac approach disappointed customers: " + pac.getNumberOfDisappointedCustomers());
+		//		System.out.printf("Pac approach profit: $%.2f", pac.getProfit());
+		//		
+		//	System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
+		//	System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
 
+		//	System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
+		//	System.out.printf("Max approach profit: $%.2f", max.getProfit());
 
-	//	MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
-	//	max.processCustomers();
+		//		System.out.println("Mat approach dissapointed customers: " + mat.getNumberOfDissapointedCustomers());
+		//		System.out.println("Mat approach profit: " + mat.getProfit());
 
-		PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
-		pac.processOrder();
-		System.out.println("Pac approach disappointed customers: " + pac.getNumberOfDisappointedCustomers());
-		System.out.printf("Pac approach profit: $%.2f", pac.getProfit());
-		
-	//	System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
-	//	System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
-
-	//	System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
-	//	System.out.printf("Max approach profit: $%.2f", max.getProfit());
-
-//		System.out.println("Mat approach dissapointed customers: " + mat.getNumberOfDissapointedCustomers());
-//		System.out.println("Mat approach profit: " + mat.getProfit());
-	
 	}
 
 
