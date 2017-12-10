@@ -119,9 +119,9 @@ public class ArrayIndexList<E>{
 		element = newElement; 
 	}
 	/**
-	 * 
-	 * @param low 
-	 * @param sup
+	 * Low meaning the position closer to 0 and high meaning the position closer to length of the array
+	 * @param low the lowest index in the list
+	 * @param sup the highest index in the list 
 	 */
 
 	private void moveDataOnePositionTR(int low, int sup) { 
@@ -129,9 +129,9 @@ public class ArrayIndexList<E>{
 			element[pos+1] = element[pos]; 
 	}
 	/**
-	 * 
-	 * @param low
-	 * @param sup
+	 * Low meaning the position closer to 0 and high meaning the position closer to length of the array
+	 * @param low the lowest index in the list
+	 * @param sup highest index in the list
 	 */
 	private void moveDataOnePositionTL(int low, int sup) { 
 		for (int pos = low; pos <= sup; pos++)

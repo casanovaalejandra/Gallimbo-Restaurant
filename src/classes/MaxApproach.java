@@ -19,7 +19,7 @@ public class MaxApproach {
 		this.inputCustomers  = inputCustomers;
 	}
 	/**
-	 * 
+	 * Process the list of customers based on the highest profit of the customer
 	 */
 
 	public void processCustomers() {
@@ -71,13 +71,7 @@ public class MaxApproach {
 		Customer[] temp = new Customer[arr.size()];
 		mergeSortByProfit(arr, temp, 0, arr.size()-1);
 	}
-	/**
-	 * 
-	 * @param arr
-	 * @param temp
-	 * @param left
-	 * @param right
-	 */
+	
 	public void mergeSortByProfit(ArrayIndexList<Customer> arr, Customer[] temp, int left, int right){
 		if (left<right) {
 			int center = (left + right)/2;
@@ -86,14 +80,7 @@ public class MaxApproach {
 			merge(arr, temp, left, center+1,right);
 		}
 	}
-	/**
-	 * 
-	 * @param arr
-	 * @param temp
-	 * @param left
-	 * @param right
-	 * @param rightEnd
-	 */
+	
 	
 	public void merge(ArrayIndexList<Customer> arr, Customer[] temp, int left, int right, int rightEnd) {
 		int leftEnd = right - 1;
