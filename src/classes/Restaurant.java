@@ -20,6 +20,7 @@ public class Restaurant {
 
 	public static void main(String[] args) {
 		Restaurant gallimbo = new Restaurant();
+
 		//File file = new File("inputKiller.csv");
 		//gallimbo.readFile(file);
 
@@ -53,9 +54,18 @@ public class Restaurant {
 		//	MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
 		//	mat.proccesOrders();
 
+		File file = new File("input7.csv");
+		gallimbo.readFile(file);
+
+
+
 
 		//	MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
 		//	max.processCustomers();
+
+		//PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
+		//pat.processCustomers();
+
 
 		//		PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
 		//		pac.processOrder();
@@ -65,14 +75,33 @@ public class Restaurant {
 		//	System.out.println("Pat approach disappointed customers: " + pat.getNumberOfDisappointedCustomers());
 		//	System.out.printf("Pat approach profit: $%.2f", pat.getProfit());
 
+		//MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
+		//mat.proccesOrders();
+
+
 		//	System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
 		//	System.out.printf("Max approach profit: $%.2f", max.getProfit());
 
 		//		System.out.println("Mat approach dissapointed customers: " + mat.getNumberOfDissapointedCustomers());
 		//		System.out.println("Mat approach profit: " + mat.getProfit());
+//		MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
+//		max.processCustomers();
 
+		PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
+		pac.processOrder();
+
+		System.out.println("Pac approach disappointed customers: " + pac.getNumberOfDisappointedCustomers());
+		System.out.printf("Pac approach profit: $%.2f", pac.getProfit());
+
+		//System.out.printf("Pat's approach profit: $%.2f\n", pat.getProfit());
+		//System.out.println("Pat's approach number of disappointed customers: " + pat.getNumberOfDisappointedCustomers());
+
+		//System.out.printf("Mat's approach profit: $%.2f\n", mat.getProfit());
+		//System.out.println("Mat's approach number of disappointed customers: " + mat.getNumberOfDissapointedCustomers());
+
+//		System.out.println("Max approach disappointed customers: " + max.getNumberOfDisappointedCustomers());
+//		System.out.printf("Max approach profit: $%.2f", max.getProfit());
 	}
-
 
 	public void readFile(File file) {
 		try {

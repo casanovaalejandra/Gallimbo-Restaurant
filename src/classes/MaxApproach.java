@@ -39,14 +39,15 @@ public class MaxApproach {
 				}
 
 			}
-			
+			int count = 0;
 			while(!inputCustomers.isEmpty() && inputCustomers.get(0).getArrivalTime()==time) {
 				waitingLine.add(inputCustomers.remove(0));
+				count++;
+			}
+			if(count > 0) {
+				mergeSortByProfit(waitingLine);
 			}
 			
-			if(!waitingLine.isEmpty()){
-				waitingLine = sortByProfit(waitingLine);
-			}
 			if(processCustomer == null && !waitingLine.isEmpty()){
 				processCustomer = waitingLine.remove(0);
 			}
@@ -55,25 +56,76 @@ public class MaxApproach {
 		}
 	}
 	
-	//a binary sort for organizing waiting customers in order by profit. 
-	public ArrayIndexList<Customer> sortByProfit(ArrayIndexList<Customer> arr) {
-		ArrayIndexList<Customer> organizedCustomers = arr;
-		if(arr.size() == 1){
-			return arr;
-		}
-		for(int i = 0; i<arr.size();i++) {
-			Customer temp;
-			for(int j = i+1; j<arr.size(); j++) {
-				if(arr.get(j).getCostOfOrder() > arr.get(i).getCostOfOrder()){
-					temp = arr.get(j);
-					arr.set(j, arr.get(i));
-					arr.set(i,temp);
-			}
-			
-			}
-		}
-		return organizedCustomers;
+	//a bubble sort for organizing waiting customers in order by profit. 
+//	public ArrayIndexList<Customer> sortByProfit(ArrayIndexList<Customer> arr) {
+//		ArrayIndexList<Customer> organizedCustomers = arr;
+//		if(arr.size() == 1){
+//			return arr;
+//		}
+//		for(int i = 0; i<arr.size();i++) {
+//			Customer temp;
+//			for(int j = i+1; j<arr.size(); j++) {
+//				if(arr.get(j).getCostOfOrder() > arr.get(i).getCostOfOrder()){
+//					temp = arr.get(j);
+//					arr.set(j, arr.get(i));
+//					arr.set(i,temp);
+//			}
+//			
+//			}
+//		}
+//		return organizedCustomers;
+//	}
+	
+	public void mergeSortByProfit(ArrayIndexList<Customer> arr) {
+		Customer[] temp = new Customer[arr.size()];
+		mergeSortByProfit(arr, temp, 0, arr.size()-1);
 	}
+	
+	public void mergeSortByProfit(ArrayIndexList<Customer> arr, Customer[] temp, int left, int right){
+		if (left<right) {
+			int center = (left + right)/2;
+			//mergeSortByProfit(arr,temp,left,center);
+			mergeSortByProfit(arr, temp, center+1, right);
+			merge(arr, temp, left, center+1,right);
+		}
+	}
+	
+	public void merge(ArrayIndexList<Customer> arr, Customer[] temp, int left, int right, int rightEnd) {
+		int leftEnd = right - 1;
+		int k = left; 
+		int num = rightEnd - left + 1;
+		
+		while(left <= leftEnd && right <= rightEnd){
+			if(compareProfit(arr.get(left),arr.get(right)) > 0){
+				temp[k++] = arr.get(left++);
+			}
+			else {
+				temp[k++] = arr.get(right++);
+			}
+		}
+		
+		while(left <= leftEnd) {
+			temp[k++] = arr.get(left++);
+		}
+		
+		while(right <= rightEnd) {
+			temp[k++] = arr.get(right++);
+		}
+		
+		for(int i = 0; i < num; i++, rightEnd--) {
+			arr.set(rightEnd,temp[rightEnd]);
+		}
+			
+	}
+	
+	public int compareProfit(Customer a, Customer b){
+		if(a.getCostOfOrder() > b.getCostOfOrder()){return 1;}
+		else if(a.getCostOfOrder() < b.getCostOfOrder()) {return -1;}
+		else{return 0;}
+	}
+	
+	
+	
 
 	public int getOrderNumber() {
 		return orderNumber;

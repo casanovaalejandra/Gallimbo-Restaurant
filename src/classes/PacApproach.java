@@ -39,12 +39,13 @@ public class PacApproach {
 
 			}
 
+			int count = 0;
 			while(!inputCustomers.isEmpty() && inputCustomers.get(0).getArrivalTime()==time) {
 				waitingLine.add(inputCustomers.remove(0));
+				count++;
 			}
-
-			if(!waitingLine.isEmpty()){
-				waitingLine = sortByTimeToPrepare(waitingLine);
+			if(count > 0) {
+				mergeSortByShortestJob(waitingLine);
 			}
 			if(processCustomer == null && !waitingLine.isEmpty()){
 				processCustomer = waitingLine.remove(0);
@@ -54,6 +55,55 @@ public class PacApproach {
 		}
 
 	}
+	
+	public void mergeSortByShortestJob(ArrayIndexList<Customer> arr) {
+		Customer[] temp = new Customer[arr.size()];
+		mergeSortByShortestJob(arr, temp, 0, arr.size()-1);
+	}
+	
+	public void mergeSortByShortestJob(ArrayIndexList<Customer> arr, Customer[] temp, int left, int right){
+		if (left<right) {
+			int center = (left + right)/2;
+			mergeSortByShortestJob(arr,temp,left,center);
+			mergeSortByShortestJob(arr, temp, center+1, right);
+			merge(arr, temp, left, center+1,right);
+		}
+	}
+	
+	public void merge(ArrayIndexList<Customer> arr, Customer[] temp, int left, int right, int rightEnd) {
+		int leftEnd = right - 1;
+		int k = left; 
+		int num = rightEnd - left + 1;
+		
+		while(left <= leftEnd && right <= rightEnd){
+			if(compareJobs(arr.get(left),arr.get(right)) >= 0){
+				temp[k++] = arr.get(left++);
+			}
+			else {
+				temp[k++] = arr.get(right++);
+			}
+		}
+		
+		while(left <= leftEnd) {
+			temp[k++] = arr.get(left++);
+		}
+		
+		while(right <= rightEnd) {
+			temp[k++] = arr.get(right++);
+		}
+		
+		for(int i = 0; i < num; i++, rightEnd--) {
+			arr.set(rightEnd,temp[rightEnd]);
+		}
+			
+	}
+	
+	public int compareJobs(Customer a, Customer b){
+		if(a.getTimeToPrepare() < b.getTimeToPrepare()){return 1;}
+		else if(a.getTimeToPrepare() > b.getTimeToPrepare()) {return -1;}
+		else{return 0;}
+	}
+	
 	public int getNumberOfDisappointedCustomers() {
 		return numberOfDisappointedCustomers;
 	}
@@ -77,7 +127,6 @@ public class PacApproach {
 					temp = arr.get(j);
 					arr.set(j, arr.get(i));
 					arr.set(i,temp);
-				
 				}
 
 			}
