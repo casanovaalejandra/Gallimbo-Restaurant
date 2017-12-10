@@ -21,7 +21,7 @@ public class MaxApproach {
 	}
 	
 	/**
-	 *  process the list of customers using the Max approach definition. 
+	 * Process the list of customers based on the highest profit of the customer
 	 */
 	public void processCustomers() {
 		time=0;

@@ -8,23 +8,37 @@ public class SLLQueue<E> implements Queue<E> {
 
 	private int size;
 
+	/**
+	 * creates an empty instance of SLLQueue
+	 */
 	public SLLQueue(){
 		last = first = null;
 		size=0;
 	}
+	/**
+	 * @return size of the SLLQueue, quantity of element in the SLLQueue
+	 */
 
 	public int size() {
 		return size;
 	}
-
+	/**
+	 * @return true if the SLLQueue does not contain any elements
+	 */
 	public boolean isEmpty() {
 		return size==0;
 	}
+	/**
+	 * @return the element saved in the first element of the Queue
+	 */
 
 	public E first() {
 		if(size==0)  {return null;}
 		return first.getElement();
 	}
+	/**
+	 * @return removes the element in the first position of the Queue and returns the element saved in it
+	 */
 
 	public E dequeue() {
 		if(isEmpty()) {
@@ -37,6 +51,9 @@ public class SLLQueue<E> implements Queue<E> {
 		size--;
 		return returnElement;
 	}
+	/**
+	 * @param Adds e to the top of the SLLQueue
+	 */
 
 	public void enqueue(E e) {
 		SNode<E> newNode = new SNode<E>(e);

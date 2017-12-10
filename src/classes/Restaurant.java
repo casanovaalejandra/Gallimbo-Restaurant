@@ -1,3 +1,25 @@
+/**********************************************************************************************************
+ 	Authors: Jose A. Melendez Moreles and Alejandra Casanova Sepulveda
+  	Course: ICOM4035
+  	University of Puerto Rico at Mayaguez
+  	Fall Semester 2017
+  	Sec:110
+
+  	Review: This project simulates a restaurant which is going to be run by 4 approaches:
+  		1)	Pat suggested serving customers based on their arrival time, 
+  			(i.e., selecting the customer who arrives earliest). He argued 
+  			that this is a fair way of doing it. This approach is usually 
+  			referred to as First-Come-First-Served (FCFS).
+		2)	Mat thinks that it will be easier to just select the last person 
+			who arrives. This approach is usually referred to as Last-Come-First-Served (LCFS).
+		3)	Max only thinks about money, so he suggested selecting the customer
+		 	who can bring the highest profit. This approach is usually referred
+		  	to as Max-Profit-First (MPF). 
+		4)	Pac thinks food should come fast, so he suggested selecting
+		 	the customer whom can be served in the shortest time. This approach 
+		 	is usually referred to as Shortest-Job-First (SJF). 
+ *
+ ***********************************************************************************************************/
 package classes;
 import java.awt.List;
 import java.io.BufferedReader;
@@ -23,15 +45,13 @@ public class Restaurant {
 	}
 
 	public static void main(String[] args) {
-		Restaurant gallimbo = new Restaurant();
 
-		//File file = new File("inputKiller.csv");
-		//gallimbo.readFile(file);
+		Restaurant gallimbo = new Restaurant();
 
 		File fileText = new File(System.getProperty("user.dir")+ "/input.txt");
 
 		ArrayIndexList<File> theFiles = new ArrayIndexList<File>();
-//when running the program it appears the is not saving any file on theFiles
+
 		try {
 			Scanner in = new Scanner(fileText);
 			while(in.hasNextLine()) {
@@ -49,30 +69,28 @@ public class Restaurant {
 			e.printStackTrace();{
 
 			}
-
 		}
 
 		for(int i =0; i<theFiles.size();i++) {
+			System.out.println(theFiles.size());
 			gallimbo.readFile(theFiles.get(i));
 			PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
 			pat.processCustomers();	
-			System.out.println("Pat approach eneded\n");
-			
+
 			gallimbo.readFile(theFiles.get(i));
 			MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
 			mat.proccesOrders();
-			System.out.println("Mat approach eneded\n");
 
 			gallimbo.readFile(theFiles.get(i));
 			MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
 			max.processCustomers();	
-			System.out.println("Max approach eneded\n");
 
 			gallimbo.readFile(theFiles.get(i));
 			PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
 			pac.processOrder();
+
 			System.out.println("Pac approach eneded\n");
-			
+
 			//Real hasta la muerte
 			try {
 				String fileName = theFiles.get(i).getName();
@@ -104,6 +122,10 @@ public class Restaurant {
 		}
 	}
 
+	/**
+	 * 
+	 * @param file: File that contains the data to be processed 
+	 */
 	public void readFile(File file) {
 		try {
 			Scanner in = new Scanner(file);
@@ -127,21 +149,25 @@ public class Restaurant {
 		}
 	}
 
+	/**
+	 * 
+	 * @return the maxProfit
+	 */
 	public static double getMaxProfit() {
 		return maxProfit/4;
 	}
 
-	public void setMaxProfit(double maxProfit) {
-		this.maxProfit = maxProfit;
-	}
-
+	/**
+	 * 
+	 * @return the Maximum of customers that have been attended
+	 */
 	public static int getMaxCustomersServed() {
 		return maxCustomersServed/4;
 	}
-
-	public void setMaxCustomersServed(int maxCustomersServed) {
-		this.maxCustomersServed = maxCustomersServed;
-	}
+	/**
+	 * 
+	 * @return the array index list that contains the customers read from the file
+	 */
 
 	public ArrayIndexList<Customer> getListOfCustomers(){
 		return listOfCustomers;
