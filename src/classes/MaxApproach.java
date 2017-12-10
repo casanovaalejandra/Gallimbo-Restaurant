@@ -11,10 +11,16 @@ public class MaxApproach {
 	ArrayIndexList<Customer> inputCustomers;
 	Customer processCustomer;
 	ArrayIndexList<Customer> waitingLine = new ArrayIndexList<Customer>();
-
+/**
+ * 
+ * @param inputCustomers list of customers read on the file
+ */
 	public MaxApproach(ArrayIndexList<Customer> inputCustomers) {
 		this.inputCustomers  = inputCustomers;
 	}
+	/**
+	 * 
+	 */
 
 	public void processCustomers() {
 		time=0;
@@ -75,12 +81,21 @@ public class MaxApproach {
 //		}
 //		return organizedCustomers;
 //	}
-	
+	/**
+	 * 
+	 * @param arr list of customers to be sorted by the highest profit
+	 */
 	public void mergeSortByProfit(ArrayIndexList<Customer> arr) {
 		Customer[] temp = new Customer[arr.size()];
 		mergeSortByProfit(arr, temp, 0, arr.size()-1);
 	}
-	
+	/**
+	 * 
+	 * @param arr
+	 * @param temp
+	 * @param left
+	 * @param right
+	 */
 	public void mergeSortByProfit(ArrayIndexList<Customer> arr, Customer[] temp, int left, int right){
 		if (left<right) {
 			int center = (left + right)/2;
@@ -89,6 +104,14 @@ public class MaxApproach {
 			merge(arr, temp, left, center+1,right);
 		}
 	}
+	/**
+	 * 
+	 * @param arr
+	 * @param temp
+	 * @param left
+	 * @param right
+	 * @param rightEnd
+	 */
 	
 	public void merge(ArrayIndexList<Customer> arr, Customer[] temp, int left, int right, int rightEnd) {
 		int leftEnd = right - 1;
@@ -117,16 +140,22 @@ public class MaxApproach {
 		}
 			
 	}
+	/**
+	 * 
+	 * @param a
+	 * @param b
+	 * @return
+	 */
 	
 	public int compareProfit(Customer a, Customer b){
 		if(a.getCostOfOrder() > b.getCostOfOrder()){return 1;}
 		else if(a.getCostOfOrder() < b.getCostOfOrder()) {return -1;}
 		else{return 0;}
 	}
-	
-	
-	
-
+	/**
+	 * 
+	 * @return
+	 */
 	public int getOrderNumber() {
 		return orderNumber;
 	}

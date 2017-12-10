@@ -67,28 +67,28 @@ public class MatApproach<E> {
 	}
 	/**
 	 * 
-	 * @return
+	 * @return total profit of the determined scenario
 	 */
 	public double getProfit() {
 		return profit;
 	}
 /**
  * 
- * @param profit
+ * @param set profit of the determined scenario
  */
 	public void setProfit(double profit) {
 		this.profit = profit;
 	}
 	/**
 	 * 
-	 * @return
+	 * @return number of customers not attended during the scenario
 	 */
 	public int getNumberOfDissapointedCustomers() {
 		return numberOfDisappointedCustomers;
 	}
 	/**
 	 * 
-	 * @param numberOfDissapointedCustomers
+	 * @param set numberOfDissapointedCustomers, customers not attended in that scenario
 	 */
 	public void setNumberOfDissapointedCustomers(int numberOfDissapointedCustomers) {
 		this.numberOfDisappointedCustomers = numberOfDissapointedCustomers;

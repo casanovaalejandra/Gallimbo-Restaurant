@@ -39,41 +39,80 @@ public class Customer {
 	}
 	/**
 	 * 
-	 * @param levelOfPatience
+	 * @param levelOfPatience of the determined customer 
 	 */
 	public void setLevelOfPatience(int levelOfPatience) {
 		this.levelOfPatience = levelOfPatience;
 	}
+	/**
+	 * 
+	 * @return ID of the dertermined customer
+	 */
 	public int getID() {
 		return ID;
 	}
+	/**
+	 * 
+	 * @param iD set ID of the determined customer 
+	 */
 	public void setID(int iD) {
 		ID = iD;
 	}
+	/**
+	 * 
+	 * @return timeToPrepare of the determined order
+	 */
 	public int getTimeToPrepare() {
 		return timeToPrepare;
 	}
+	/**
+	 * 
+	 * @param set timeToPrepare of the determined customer
+	 */
 	public void setTimeToPrepare(int timeToPrepare) {
 		this.timeToPrepare = timeToPrepare;
 	}
+	/**
+	 * 
+	 * @return costOfOrder of the determined customer
+	 */
 	public double getCostOfOrder() {
 		return costOfOrder;
 	}
+	/**
+	 * 
+	 * @param set costOfOrder of the determined customer
+	 */
 	public void setCostOfOrder(double costOfOrder) {
 		this.costOfOrder = costOfOrder;
 	}
+	/**
+	 * 
+	 * @return arrival time of the determined customer
+	 */
 
 	public int getArrivalTime() {
 		return arrivalTime;
 	}
+	/**
+	 * 
+	 * @param set arrivalTime of the determined customer
+	 */
 	public void setArrivalTime(int arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
-
+	/**
+	 * 
+	 * @return patience time of the determined customer
+	 */
 	public int getPatienceOverTime() {
 		return patienceOverTime;
 	}
 
+	/**
+	 * 
+	 * @param set patienceOverTime of the determined customer
+	 */
 	public void setPatienceOverTime(int patienceOverTime) {
 		this.patienceOverTime = patienceOverTime;
 	}

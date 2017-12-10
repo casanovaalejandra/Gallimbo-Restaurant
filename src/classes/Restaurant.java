@@ -31,7 +31,7 @@ public class Restaurant {
 		File fileText = new File(System.getProperty("user.dir")+ "/input.txt");
 
 		ArrayIndexList<File> theFiles = new ArrayIndexList<File>();
-
+//when running the program it appears the is not saving any file on theFiles
 		try {
 			Scanner in = new Scanner(fileText);
 			while(in.hasNextLine()) {
@@ -42,7 +42,7 @@ public class Restaurant {
 
 			}
 			for(int i =0;i<theFiles.size();i++) {
-				System.out.println(theFiles.get(i).toString());
+				//System.out.println(theFiles.get(i).toString());
 			}
 
 		}catch (FileNotFoundException e) {
@@ -52,34 +52,30 @@ public class Restaurant {
 
 		}
 
-		//	PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
-		//	pat.processCustomers();
-
-		//	MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
-		//	mat.proccesOrders();
-
-		for(int i =0; i<theFiles.size()-1;i++) {
-
+		for(int i =0; i<theFiles.size();i++) {
 			gallimbo.readFile(theFiles.get(i));
 			PatApproach pat = new PatApproach(gallimbo.getListOfCustomers());
 			pat.processCustomers();	
-
+			System.out.println("Pat approach eneded\n");
+			
 			gallimbo.readFile(theFiles.get(i));
 			MatApproach<Customer> mat = new MatApproach<Customer>(gallimbo.getListOfCustomers());
 			mat.proccesOrders();
+			System.out.println("Mat approach eneded\n");
 
 			gallimbo.readFile(theFiles.get(i));
 			MaxApproach max = new MaxApproach(gallimbo.getListOfCustomers());
 			max.processCustomers();	
+			System.out.println("Max approach eneded\n");
 
 			gallimbo.readFile(theFiles.get(i));
 			PacApproach pac = new PacApproach(gallimbo.getListOfCustomers());
 			pac.processOrder();
-
+			System.out.println("Pac approach eneded\n");
 			//Real hasta la muerte
 			try {
 				String fileName = theFiles.get(i).getName();
-				String baseName = fileName.substring(0, fileName.length()-5);
+				String baseName = fileName.substring(0, fileName.length()-4);
 				String outputName = baseName + ".out";
 				PrintWriter outputStream = new PrintWriter(outputName);
 				outputStream.printf("Maximum profit possible: $%.2f", getMaxProfit());
